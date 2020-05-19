@@ -21,7 +21,9 @@ class ParkAreaSerializer(serializers.HyperlinkedModelSerializer):
         )
         fields = ('id', 'url', 'name', 'theme')
 
-
+# Here we are simply creating functions with ORMs that 
+# perform CRUD operations with the DB and then return either
+# a JSON object or an error if the action didn't work.
 class ParkAreas(ViewSet):
     """Park Areas for Kennywood Amusement Park"""
 
