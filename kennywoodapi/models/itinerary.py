@@ -9,7 +9,7 @@ class Itinerary(models.Model):
     starttime = models.IntegerField()
 
     class Meta:
-        ordering = ("starttime")
+        ordering = ("starttime",)
         verbose_name = ("itinerary")
         verbose_name_plural = ("itineraries")
 
