@@ -6,7 +6,7 @@ from rest_framework import serializers
 from rest_framework import status
 from kennywoodapi.models import ParkArea
 
-
+# Turns data into JSON format
 class ParkAreaSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for park areas
 
