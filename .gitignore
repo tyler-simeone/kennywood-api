@@ -18,7 +18,7 @@ local_settings.py
 .env
 
 # virtualenv
-workforceenv/
+KennywoodEnv/
 .vscode
 
 .DS_Store
