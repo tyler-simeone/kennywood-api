@@ -19,6 +19,11 @@ from rest_framework.authtoken.views import obtain_auth_token
 from kennywoodapi.models import *
 from kennywoodapi.views import ParkAreas, Itineraries, Customers, Attractions
 
+
+# TODO: Add user to auth_users (superuser), add register and 
+# login views to url patterns for those endpoints/paths (Ch. 7) 
+# and practice with including token in request header
+
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'parkareas', ParkAreas, 'parkarea')
 router.register(r'itineraries', Itineraries, 'itinerary')
