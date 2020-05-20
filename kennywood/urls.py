@@ -17,7 +17,7 @@ from django.urls import include, path
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 from kennywoodapi.models import *
-from kennywoodapi.views import ParkAreas, Itineraries, Customers, Attractions
+from kennywoodapi.views import ParkAreas, Itineraries, Customers, Attractions, register_user, login_user
 
 
 # TODO: Add user to auth_users (superuser), add register and 
@@ -32,6 +32,8 @@ router.register(r'attractions', Attractions, 'attraction')
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('register', register_user),
+    path('login', login_user),
     path('api-token-auth/', obtain_auth_token),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
