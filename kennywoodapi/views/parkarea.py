@@ -4,7 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from kennywoodapi.models import ParkArea
+from kennywoodapi.models import ParkArea, Attraction
 
 # Turns data into JSON format
 class ParkAreaSerializer(serializers.HyperlinkedModelSerializer):
@@ -19,7 +19,7 @@ class ParkAreaSerializer(serializers.HyperlinkedModelSerializer):
             view_name='parkarea',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'name', 'theme')
+        fields = ('id', 'url', 'name', 'theme', 'attractions')
 
 # Here we are simply creating functions with ORMs that 
 # perform CRUD operations with the DB and then return either
@@ -93,6 +93,11 @@ class ParkAreas(ViewSet):
             Response -- JSON serialized list of park areas
         """
         areas = ParkArea.objects.all()
+        
+        for area in areas:
+            area.attractions = Attraction.objects.filter(area_id=area.id)
+        
         serializer = ParkAreaSerializer(
             areas, many=True, context={'request': request})
+
         return Response(serializer.data)
