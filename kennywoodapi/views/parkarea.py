@@ -20,7 +20,7 @@ class ParkAreaSerializer(serializers.HyperlinkedModelSerializer):
             lookup_field='id'
         )
         fields = ('id', 'url', 'name', 'theme', 'attractions')
-        depth = 1
+        depth = 2
 
 # Here we are simply creating functions with ORMs that 
 # perform CRUD operations with the DB and then return either
