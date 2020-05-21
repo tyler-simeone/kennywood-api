@@ -19,7 +19,8 @@ class AttractionSerializer(serializers.HyperlinkedModelSerializer):
             view_name='attraction',
             lookup_field='id'
         )
-        fields = ('id', 'name', 'area_id')
+        fields = ('id', 'url', 'name', 'area')
+        depth = 1
 
 # Here we are simply creating functions with ORMs that 
 # perform CRUD operations with the DB and then return either
