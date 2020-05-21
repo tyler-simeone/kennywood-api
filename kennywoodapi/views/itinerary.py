@@ -19,7 +19,8 @@ class ItinerarySerializer(serializers.HyperlinkedModelSerializer):
             view_name='itinerary',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'starttime', 'attraction_id', 'customer_id')
+        fields = ('id', 'url', 'starttime', 'attraction', 'customer_id')
+        depth = 1
 
 # Here we are simply creating functions with ORMs that 
 # perform CRUD operations with the DB and then return either
